@@ -1,4 +1,5 @@
 export class Negociacao {
+    //TIPO DEPOIS,NO CONTRUTOR
     constructor(data, quantidade, valor) {
         this._data = data;
         this._quantidade = quantidade;
