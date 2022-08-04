@@ -2,14 +2,14 @@ import { Negociacao } from "./negociacao.js";
 
 export class Negociacoes{
     //CRIAR LISTA
-    private negociacoes: Array<Negociacao>=[];
+    private negociacoes:Negociacao[]=[];
 
     adiciona(negociaocao:Negociacao)
     {
         this.negociacoes.push(negociaocao);
     }
-    //IDENTICO AO ARRAY MAS MUDA QUE NÃO PODE REALIZAR ALGUMAAS OPERAÇOES
-    lista():ReadonlyArray<Negociacao>
+    //IDENTICO AO ARRAY MAS MUDA QUE NÃO PODE REALIZAR ALGUMAAS OPERAÇOES SOMENTE LEITURA
+    lista():readonly Negociacao[]
     {
         //NOVA REFERENCIA QUE NÃO APONTA PARA MESMA,PELO CONSOLE PODE MEXER MAIS NÃO PODE ALTERAR A LISTA ORIGINAL
         //SPADDING OPERATOR
