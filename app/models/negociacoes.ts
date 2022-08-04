@@ -8,12 +8,12 @@ export class Negociacoes{
     {
         this.negociacoes.push(negociaocao);
     }
-
-    lista():Array<Negociacao>
+    //IDENTICO AO ARRAY MAS MUDA QUE NÃO PODE REALIZAR ALGUMAAS OPERAÇOES
+    lista():ReadonlyArray<Negociacao>
     {
         //NOVA REFERENCIA QUE NÃO APONTA PARA MESMA,PELO CONSOLE PODE MEXER MAIS NÃO PODE ALTERAR A LISTA ORIGINAL
         //SPADDING OPERATOR
-        return [...this.negociacoes];
+        return this.negociacoes;
     }
 
 
