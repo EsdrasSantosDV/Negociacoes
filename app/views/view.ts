@@ -1,6 +1,8 @@
 
-// T PODE SER QUALQUER TIPO
-export class View<T>{
+// T PODE SER QUALQUER TIPO E NAS CLASSES FILHAS E QEU EU DECIDO
+
+//PRA CRIAR CLASSES ABSTRACT
+export abstract class View<T>{
     protected elemento:HTMLElement;
 
     constructor(seletor:string){
@@ -8,9 +10,7 @@ export class View<T>{
     }   
 
 
-    template(model:T):string{
-        throw Error('Classe filha precisa implementar o metodo template')
-    }
+    abstract template(model:T):string;
 
     uptade(model:T):void{
         const template= this.template(model);

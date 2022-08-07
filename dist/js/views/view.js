@@ -1,10 +1,8 @@
-// T PODE SER QUALQUER TIPO
+// T PODE SER QUALQUER TIPO E NAS CLASSES FILHAS E QEU EU DECIDO
+//PRA CRIAR CLASSES ABSTRACT
 export class View {
     constructor(seletor) {
         this.elemento = document.querySelector(seletor);
-    }
-    template(model) {
-        throw Error('Classe filha precisa implementar o metodo template');
     }
     uptade(model) {
         const template = this.template(model);

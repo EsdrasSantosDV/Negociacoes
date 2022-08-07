@@ -10,3 +10,5 @@ form.addEventListener('submit', event => {
 // const negociacoesView=new NegociacoesView
 // const template =negociacoesView.template();
 // console.log(template);
+//const view=new View('algumseletor');
+// view.uptade('xuxa');
