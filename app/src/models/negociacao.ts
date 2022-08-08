@@ -1,8 +1,9 @@
 import { NegociacaoController } from "../controllers/negociacao-controller.js";
 import { Comparavel } from "../interfaces/comparavel.js";
+import { Modelo } from "../interfaces/modelo.js";
 import { Imprimivel } from "../utils/imprimivel.js";
 //PRA ME OBRIGAR A IMPLEMENTAR OS METODOS DO IMPRIMIVEL
-export class Negociacao implements Imprimivel,Comparavel<Negociacao>{
+export class Negociacao implements Modelo<Negociacao>{
     constructor(
         private _data: Date, 
         public readonly quantidade: number, 
