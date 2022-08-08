@@ -4,8 +4,8 @@ import { View } from "./view.js";
 export class NegociacoesView extends View<Negociacoes>{
     
 
-
-    template(model:Negociacoes):string{
+//COLCOANDO PROTECTED IREMOS DIMINIUR A VISIBILIDADE DESSE METODO NA CONTROLER
+   protected template(model:Negociacoes):string{
         return `
              <table class="table table-hover table-bordered">
                 <thead>
@@ -22,7 +22,7 @@ export class NegociacoesView extends View<Negociacoes>{
                         return`
                             <tr>
                           
-                                <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
+                                <td>${this.formatar(negociacao.data)}</td>
                                 <td>${negociacao._quantidade}</td>
                                 <td>${negociacao._valor}</td>
                             </tr>
@@ -35,7 +35,12 @@ export class NegociacoesView extends View<Negociacoes>{
     }
 
 
-    uptade(model:Negociacoes):void{
+    private formatar(data:Date):string{
+       return  new Intl.DateTimeFormat().format(data)
+    }
+
+
+    public uptade(model:Negociacoes):void{
         const template=this.template(model);
         this.elemento.innerHTML=this.template(model);
     }

@@ -1,5 +1,6 @@
 import { View } from "./view.js";
 export class NegociacoesView extends View {
+    //COLCOANDO PROTECTED IREMOS DIMINIUR A VISIBILIDADE DESSE METODO NA CONTROLER
     template(model) {
         return `
              <table class="table table-hover table-bordered">
@@ -17,7 +18,7 @@ export class NegociacoesView extends View {
             return `
                             <tr>
                           
-                                <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
+                                <td>${this.formatar(negociacao.data)}</td>
                                 <td>${negociacao._quantidade}</td>
                                 <td>${negociacao._valor}</td>
                             </tr>
@@ -27,6 +28,9 @@ export class NegociacoesView extends View {
 
             </table>    
         `;
+    }
+    formatar(data) {
+        return new Intl.DateTimeFormat().format(data);
     }
     uptade(model) {
         const template = this.template(model);

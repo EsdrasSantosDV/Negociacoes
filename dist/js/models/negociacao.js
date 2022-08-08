@@ -12,4 +12,13 @@ export class Negociacao {
     get volume() {
         return this._valor * this._quantidade;
     }
+    //TODO METODO ESTATICO PODE SER CHAMADO NA CLASSE E SEMPRE PUBLIC PQ NÃO FAZ SENTIDO SER PRIVADO
+    static criaDe(dataString, quantidadeString, valorString) {
+        const exp = /-/g;
+        //PROCURAR TODO MUNDO QUE TEM HIFEN E SUBSTITUIR POR ,
+        const date = new Date(dataString.replace(exp, ','));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseFloat(valorString);
+        return new Negociacao(date, quantidade, valor);
+    }
 }
