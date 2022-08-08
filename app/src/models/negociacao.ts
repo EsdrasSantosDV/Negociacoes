@@ -1,13 +1,14 @@
+import { NegociacaoController } from "../controllers/negociacao-controller.js";
+import { Comparavel } from "../interfaces/comparavel.js";
 import { Imprimivel } from "../utils/imprimivel.js";
-
-export class Negociacao extends Imprimivel{
+//PRA ME OBRIGAR A IMPLEMENTAR OS METODOS DO IMPRIMIVEL
+export class Negociacao implements Imprimivel,Comparavel<Negociacao>{
     constructor(
         private _data: Date, 
         public readonly quantidade: number, 
         public readonly valor: number
     ) {
-        //PQ ELA E UMA FILHA,NECESSARIO CHAMAR O CONSTRUCTOR DA PAI
-        super();
+
     }
 
     get volume(): number {
@@ -33,5 +34,13 @@ export class Negociacao extends Imprimivel{
         const quantidade = parseInt(quantidadeString);
         const valor = parseFloat(valorString);
         return new Negociacao(date, quantidade, valor);
+    }
+
+    public isIgual(negociacao:Negociacao):boolean{
+        return this.data.getDate()===negociacao.data.getDate()
+        && this.data.getMonth() === negociacao.data.getMonth()
+        && this.data.getFullYear() === negociacao.data.getFullYear();
+
+
     }
 }

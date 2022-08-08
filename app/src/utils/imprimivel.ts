@@ -1,3 +1,4 @@
-export abstract class Imprimivel{
-    public abstract paraTexto():string;
+//COMO EU SO QUERO QUE OBRIGUE O PARA TEXTO
+export interface Imprimivel{
+     paraTexto():string;
 }
