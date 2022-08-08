@@ -11,13 +11,14 @@ export class NegociacaoController{
     private inputQuantidade:HTMLInputElement;
     private inputValor:HTMLInputElement;
     private negociacoes:Negociacoes=new Negociacoes();
-    private negociacoesView=new NegociacoesView('#negociacoesView');
+    private negociacoesView=new NegociacoesView('#negociacoesView',true);
     private mensagemView=new MensagemView('#mensagemView');
     constructor()
     {
-        this.inputData=document.querySelector('#data');
-        this.inputQuantidade=document.querySelector('#quantidade');
-        this.inputValor=document.querySelector('#valor');
+        // AS GARANTO QUE O TIPO VAI SER ESSE,CASTING EXPLICITO DAS DUAS MANEIRAS
+        this.inputData=document.querySelector('#data') as HTMLInputElement;
+        this.inputQuantidade=<HTMLInputElement>document.querySelector('#quantidade');
+        this.inputValor=document.querySelector('#valor') as HTMLInputElement;
         this.negociacoesView.uptade(this.negociacoes);
        
     }

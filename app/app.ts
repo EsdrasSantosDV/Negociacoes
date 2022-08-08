@@ -5,12 +5,20 @@ import { View } from "./views/view.js";
 
 const controller =new NegociacaoController();
 const form= document.querySelector('.form');
-form.addEventListener('submit',event=>{
+if(form)
+{
+    form.addEventListener('submit',event=>{
     //PRA NÃO RECARREGAR
     event.preventDefault();
 
     controller.adiciona();
-});
+    });
+
+}
+else
+{
+    throw Error('Não foi possivel inicializar a aplicação.Verifique a View');
+}
 
 // const negociacoesView=new NegociacoesView
 // const template =negociacoesView.template();

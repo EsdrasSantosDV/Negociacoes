@@ -6,7 +6,7 @@ import { NegociacoesView } from "../views/negociacoes-view.js";
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes();
-        this.negociacoesView = new NegociacoesView('#negociacoesView');
+        this.negociacoesView = new NegociacoesView('#negociacoesView', true);
         this.mensagemView = new MensagemView('#mensagemView');
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
@@ -14,9 +14,7 @@ export class NegociacaoController {
         this.negociacoesView.uptade(this.negociacoes);
     }
     adiciona() {
-        //CRIANDO UMA NEGOCIACAO UTILIZANDO UM METODO ESTATICO UTILIZNADO A PROPRIA CLASSE
         const negociacao = Negociacao.criaDe(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
-        //SOMENTE DIAS UTEIS 0 - 6 SABADO E 6
         if (!this.isDiaUtil(negociacao.data)) {
             this.mensagemView.uptade('Apenas negociacoes em dias uteis são aceitas');
             return;
