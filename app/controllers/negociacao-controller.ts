@@ -25,6 +25,7 @@ export class NegociacaoController{
 
     public adiciona():void{
         //CRIANDO UMA NEGOCIACAO UTILIZANDO UM METODO ESTATICO UTILIZNADO A PROPRIA CLASSE
+       
         const negociacao=Negociacao.criaDe(
             this.inputData.value,
             this.inputQuantidade.value,
@@ -40,7 +41,10 @@ export class NegociacaoController{
         }
         this.negociacoes.adiciona(negociacao);
         this.limparFormulario();
+    
         this.atualizaView();
+        const t2=performance.now();
+    
     }
 
     private isDiaUtil(data:Date){

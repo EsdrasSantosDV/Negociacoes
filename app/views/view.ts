@@ -29,6 +29,8 @@ export abstract class View<T>{
     protected abstract template(model:T):string;
 
     uptade(model:T):void{
+       
+
         let template=this.template(model);
         if(this.escapar)
         {
@@ -36,6 +38,7 @@ export abstract class View<T>{
         }
     
         this.elemento.innerHTML=template;
+       
     }
 
 }
