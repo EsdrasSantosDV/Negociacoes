@@ -18,7 +18,8 @@ export abstract class View<T> {
         }
     }
     @logarTempoDeExecucao(true)
-    @inspect()
+    //COMO O INSPECT NÃO TEM PARAMETRO NÃO NECESSITA CHAMAR ()
+    @inspect
     public update(model: T): void {
         let template = this.template(model);
         if (this.escapar) {
