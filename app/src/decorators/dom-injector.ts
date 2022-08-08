@@ -6,12 +6,17 @@ export function domInjector(seletor:string)
     {
 
         //METODO QUE BUSCA O ELEMENTO DO DOM EM BASE DO SELETOR
-        const getter=function(){
-            const elemento=document.querySelector(seletor);
-            console.log(`buscando elemento do DOM COM O SELETOR
-            ${seletor} PARA INJETAR EM
-            ${propertyKey}`);
 
+        //SEMPRE VAI LEMBRAR DESSE HTMLElement
+        let elemento:HTMLElement;
+        const getter=function(){
+            if(!elemento)
+            {
+                elemento=<HTMLElement>document.querySelector(seletor); 
+                 console.log(`buscando elemento do DOM COM O SELETOR
+                 ${seletor} PARA INJETAR EM
+                 ${propertyKey}`);
+            }
             return elemento;
         }
 
